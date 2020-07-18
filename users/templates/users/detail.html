@@ -1,14 +1,17 @@
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+{% extends 'users/base.html' %}
 
-<html>
-    <head>{{user.name}} {{user.surname}}</head>
+{% block title %} {{user.name}} {{user.surname}} {% endblock %}
 
+
+{% block content %} 
+    
+    <p>{{user.name}} {{user.surname}}</p>
     <body>
-       <p> AGE: {{user.age}} </p>
-       <p> BIRTHDAY: {{user.birthday}} </p>
-       {% if user.photo %}
+        <p> AGE: {{user.age}} </p>
+        <p> BIRTHDAY: {{user.birthday}} </p>
+        {% if user.photo %}
             <img src="{{ user.photo.url }}" style="max-height: 300px">
-       {% endif %}
+        {% endif %}
     </body>
 
     <form method="post">
@@ -17,6 +20,6 @@
 
         <input type="submit" value="Delete user"></button>
     </form>
+{% endblock %}
 
 
-</html>
