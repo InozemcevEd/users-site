@@ -1,0 +1,26 @@
+{% extends 'users/base.html' %}
+
+
+{% block title %} Users {% endblock %}
+
+{% block content %} 
+    <form action ="" method="get">
+        {% csrf_token %}
+        {{form}}
+
+        <input type="submit", value="reload">
+        <!-- <input value="Reload" type="button" onclick="location.href='/'" /> -->
+    </form>
+
+    {% for user in all_users %}
+        <li><a href="/{{user.id}}">{{user.name.title}} {{user.surname}}</a></li>
+    {% endfor %}
+    </body>
+
+
+    <input value="Add new user" type="button" onclick="location.href='/create'" />
+
+    <p><h4> <a href="/save_users_xls">Save all users</a> </h4></p>
+{% endblock %}
+
+
