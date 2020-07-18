@@ -4,7 +4,7 @@ from .models import MyUser
 class CreateNewUser(forms.Form):
     name = forms.CharField(label="Name", max_length=200)
     surname = forms.CharField(label="Surname", max_length=200)
-    age = forms.IntegerField(label="Age")
+    # age = forms.IntegerField(label="Age")
     birthday = forms.DateField(label="Birthday")
     photo = forms.ImageField(required=False)
     # photo = forms.ImageField("photo", upload_to="users/photos", default="" , blank=True)

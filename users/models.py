@@ -5,7 +5,7 @@ from django.db import models
 class MyUser(models.Model):
     name = models.CharField(max_length=100)
     surname = models.CharField(max_length=100)
-    age = models.PositiveIntegerField()
+    # age = models.PositiveIntegerField()
     birthday = models.DateField()
     photo = models.ImageField("photo", upload_to="users/photos", default="" , blank=True)
 

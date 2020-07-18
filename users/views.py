@@ -4,7 +4,7 @@ from .models import MyUser
 from django.template import loader
 from .forms import CreateNewUser, UsersFilterForm
 import xlwt
-
+from django.utils import timezone
 
 def home(response):
     all_users = MyUser.objects.all()
@@ -21,11 +21,19 @@ def home(response):
 def detail_information(response, user_id):
     user = MyUser.objects.get(id=user_id)
 
+    today = timezone.now().date()
+
     if response.method == "POST":
         user.delete()
         return HttpResponseRedirect("/")
 
-    return render(response, 'users/detail.html', {"user": user})
+    age = today.year - user.birthday.year - 1
+    if today.month - user.birthday.month >= 0:
+        age += 1
+    
+
+
+    return render(response, 'users/detail.html', {"user": user, "age": age})
 
 
 
