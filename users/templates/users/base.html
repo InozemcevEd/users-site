@@ -31,7 +31,12 @@
             padding: 0px 10px;
         }
 
+        
     </style>
+
+    {% load static %}
+    <script src="{% static 'app.js' %}"></script>   
+    <title>Site</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -41,7 +46,7 @@
 
     <title>
         {% block title %}
-            OUR USERS
+            
         {% endblock %}
     </title>
 </head>
@@ -50,6 +55,7 @@
     <div class="sidenav">
         <a href="/">Home</a>
         <a href="/create">Create</a>
+        <a href="/votes">Votes</a>
     </div>
 
     <div id="content", name="content", class="main">

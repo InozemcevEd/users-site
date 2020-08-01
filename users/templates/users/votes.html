@@ -1,0 +1,19 @@
+{% extends 'users/base.html' %}
+
+{% block title %} Polls {% endblock %}
+
+
+
+
+{% block content %}
+    {% for user in all_users %}
+        {% if user.photo %}
+            <img src="{{ user.photo.url }}" style="max-height: 200px; max-width: 200px">
+            <input value="+1" type="button" onclick="location.href='/vote/{{user.id}}/'" />
+            <div class="counter">
+                <p> Counter: {{ user.counter }} </p>
+            </div>
+            <hr class="mt-0 mt-4">
+        {% endif %}
+    {% endfor %}
+{% endblock %}
